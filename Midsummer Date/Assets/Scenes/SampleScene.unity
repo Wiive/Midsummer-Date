@@ -1489,6 +1489,8 @@ GameObject:
   - component: {fileID: 1867457762}
   - component: {fileID: 1867457764}
   - component: {fileID: 1867457763}
+  - component: {fileID: 1867457766}
+  - component: {fileID: 1867457765}
   m_Layer: 5
   m_Name: Dialog Panel
   m_TagString: Untagged
@@ -1559,6 +1561,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867457761}
   m_CullTransparentMesh: 1
+--- !u!225 &1867457765
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867457761}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &1867457766
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867457761}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 44c7bf1ea0d1ea847ac788f98c5119cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2018957905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,6 +1993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8958426313365140092, guid: f19fafb2bee65c9499ba03c36eb61203, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1867457766}
     - target: {fileID: 8958426313365140092, guid: f19fafb2bee65c9499ba03c36eb61203, type: 3}
       propertyPath: speakerName
       value: 

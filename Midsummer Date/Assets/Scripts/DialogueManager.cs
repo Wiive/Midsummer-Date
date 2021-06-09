@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
+using UnityEngine.PlayerLoop;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -10,6 +12,11 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI speakerName;
     public TextMeshProUGUI dialogueText;
     private float dialogueSpeed = 0.01f;
+
+    public Animator animator;
+
+    public bool canSkip;
+    public bool skipped;
     
     private Queue<string> sentences;
 
@@ -33,9 +40,21 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
+    private void Update()
+    {
+        if (canSkip)
+        {
+            if (Input.anyKeyDown)
+            {
+                Debug.Log("You skipped clicked");
+                skipped = true;
+            }
+        }
+    }
+
     public void StartDialogue(Dialogue dialogue)
     {
-        Debug.Log("Starting to speak with: " + dialogue.speakerName);
+        animator.SetBool("IsOpen", true);
 
         speakerName.text = dialogue.speakerName;
 
@@ -47,10 +66,13 @@ public class DialogueManager : MonoBehaviour
         }
 
         DisplayNextSentence();
+        canSkip = true;
     }
+
 
     public void DisplayNextSentence()
     {
+        skipped = false;
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -59,14 +81,24 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
-
-        //Make so the player can skip type event;
+      
+        if (skipped)
+        {
+            Debug.Log("Trying to skip type");
+            StopAllCoroutines();
+            dialogueText.text = sentence;
+        }
+        else
+        {
+            StartCoroutine(TypeSentence(sentence));
+        }
+        
     }
 
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
+
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
@@ -76,6 +108,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        Debug.Log("End of the conversation.");
+        animator.SetBool("IsOpen", false);
+        canSkip = false;
+        skipped = false;
     }
 }
