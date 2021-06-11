@@ -18,7 +18,7 @@ MonoBehaviour:
     - Hi what is your name?
     - Cool name!
   speaker2:
-    speakerName: Player
+    speakerName: You
     sentences:
-    - Hi, my name is Player.
+    - Hi, my name is Me
     - Thank you!

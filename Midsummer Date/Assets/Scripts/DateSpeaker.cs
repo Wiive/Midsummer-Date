@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DateSpeaker : Speaker
@@ -16,7 +17,7 @@ public class DateSpeaker : Speaker
 
         if (gameObject.GetComponent<Button>() == true)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

@@ -4,11 +4,13 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
 using UnityEngine.PlayerLoop;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
     private static DialogueManager instance;
 
+    [SerializeField] Conversation conversation;
     public TextMeshProUGUI speakerName;
     public TextMeshProUGUI dialogueText;
     private float dialogueSpeed = 0.01f;
@@ -19,6 +21,9 @@ public class DialogueManager : MonoBehaviour
     public bool skipped;
 
     private Queue<string> sentences;
+
+    //Quick fix, will rework later
+    public UnityEvent endOfDialogue;
 
     public static DialogueManager Instance { get { return instance; } }
 
@@ -36,7 +41,12 @@ public class DialogueManager : MonoBehaviour
     }
 
     void Start()
-    {
+    {               
+        if (endOfDialogue == null)
+        {
+            endOfDialogue = new UnityEvent();
+        }
+        
         sentences = new Queue<string>();
     }
 
@@ -111,11 +121,21 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         canSkip = false;
         skipped = false;
+        endOfDialogue.Invoke();
     }
 
     public void StartConversation(Conversation conversation)
     {
+        animator.SetBool("IsOpen", true);
 
+        this.conversation = conversation;
+    }
+
+    public void EndConversation()
+    {
+        animator.SetBool("IsOpen", false);
+        endOfDialogue.Invoke();
+        
     }
 
 }
