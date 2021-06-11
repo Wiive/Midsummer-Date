@@ -17,7 +17,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool canSkip;
     public bool skipped;
-    
+
     private Queue<string> sentences;
 
     public static DialogueManager Instance { get { return instance; } }
@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
-      
+
         if (skipped)
         {
             Debug.Log("Trying to skip type");
@@ -92,7 +92,7 @@ public class DialogueManager : MonoBehaviour
         {
             StartCoroutine(TypeSentence(sentence));
         }
-        
+
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -112,4 +112,10 @@ public class DialogueManager : MonoBehaviour
         canSkip = false;
         skipped = false;
     }
+
+    public void StartConversation(Conversation conversation)
+    {
+
+    }
+
 }
