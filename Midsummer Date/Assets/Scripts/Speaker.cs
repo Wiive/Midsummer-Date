@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Speaker : MonoBehaviour
+public abstract class Speaker : MonoBehaviour
 {
     public Dialogue dialogue;
 
