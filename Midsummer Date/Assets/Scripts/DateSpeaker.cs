@@ -20,5 +20,4 @@ public class DateSpeaker : Speaker
             gameObject.SetActive(false);
         }
     }
-
 }

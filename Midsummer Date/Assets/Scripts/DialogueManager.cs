@@ -5,12 +5,12 @@ using TMPro;
 using UnityEngine.UIElements;
 using UnityEngine.PlayerLoop;
 using UnityEngine.Events;
+using System.Linq;
 
 public class DialogueManager : MonoBehaviour
 {
     private static DialogueManager instance;
 
-    [SerializeField] Conversation conversation;
     public TextMeshProUGUI speakerName;
     public TextMeshProUGUI dialogueText;
     private float dialogueSpeed = 0.01f;
@@ -21,6 +21,9 @@ public class DialogueManager : MonoBehaviour
     public bool skipped;
 
     private Queue<string> sentences;
+    private Conversation conversation;
+    private bool havingConversation;
+    private bool speaker1Active;
 
     //Quick fix, will rework later
     public UnityEvent endOfDialogue;
@@ -66,7 +69,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", true);
 
-        speakerName.text = dialogue.speakerName;
+        speakerName.text = dialogue.character.speakerName;
 
         sentences.Clear();
 
@@ -91,6 +94,20 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
+
+        if (havingConversation)
+        {
+            if (speaker1Active)
+            {
+                speakerName.text = conversation.speaker1.character.speakerName;
+            }
+            else
+            {
+                speakerName.text = conversation.speaker2.character.speakerName;
+            }
+            speaker1Active = !speaker1Active;
+                            
+        }
 
         if (skipped)
         {
@@ -127,15 +144,32 @@ public class DialogueManager : MonoBehaviour
     public void StartConversation(Conversation conversation)
     {
         animator.SetBool("IsOpen", true);
+        havingConversation = true;
+        speaker1Active = true;
+
+        if (conversation == null)
+        {
+            Debug.LogError("You havn't added a conversation to this speaker");
+        }
 
         this.conversation = conversation;
+        var speaker1 = conversation.speaker1;
+        var speaker2 = conversation.speaker2;
+
+        for (int i = 0; i < speaker1.sentences.Length; i++)
+        {
+           sentences.Enqueue(speaker1.sentences[i]);
+           sentences.Enqueue(speaker2.sentences[i]);
+        }
+
+        DisplayNextSentence();
     }
 
     public void EndConversation()
     {
         animator.SetBool("IsOpen", false);
-        endOfDialogue.Invoke();
-        
+        havingConversation = false;
+        endOfDialogue.Invoke();      
     }
 
 }

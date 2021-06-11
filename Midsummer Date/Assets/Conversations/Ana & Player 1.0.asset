@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Ana & Player 1.0
   m_EditorClassIdentifier: 
   speaker1:
-    speakerName: Ana Banana
+    character: {fileID: 11400000, guid: 1521cd8cc47bc9d478fdef376d1711b5, type: 2}
     sentences:
     - Hi what is your name?
     - Cool name!
   speaker2:
-    speakerName: You
+    character: {fileID: 11400000, guid: d57a6dba3a54a574ebcdae715413ac8a, type: 2}
     sentences:
     - Hi, my name is Me
     - Thank you!
