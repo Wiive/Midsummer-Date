@@ -176,7 +176,6 @@ public class DialogueManager : MonoBehaviour
         else if (conversation.question != null)
         {
             Question question = conversation.question;
-            questionController.RemoveChoices();
             questionController.Change(question);
         }
         else
