@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI speakerName;
     public TextMeshProUGUI dialogueText;
     private float dialogueSpeed = 0.01f;
+    public QuestionController questionController;
 
     public Animator animator;
 
@@ -88,7 +89,8 @@ public class DialogueManager : MonoBehaviour
         skipped = false;
         if (sentences.Count == 0)
         {
-            EndDialogue();
+            //EndDialogue();
+            EndConversation();
             return;
         }
 
@@ -166,10 +168,23 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void EndConversation()
-    {
-        animator.SetBool("IsOpen", false);
-        havingConversation = false;
-        endOfDialogue.Invoke();      
+    {       
+        if (conversation.nextConversation != null)
+        {
+            StartConversation(conversation.nextConversation);
+        }
+        else if (conversation.question != null)
+        {
+            Question question = conversation.question;
+            questionController.RemoveChoices();
+            questionController.Change(question);
+        }
+        else
+        {
+            animator.SetBool("IsOpen", false);
+            havingConversation = false;
+        }
+        endOfDialogue.Invoke();
     }
 
 }

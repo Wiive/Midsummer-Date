@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00a2d4ed0da7ce04abbde6f5c632e54e, type: 3}
-  m_Name: Ana & Player 1.0
+  m_Name: Chocolate
   m_EditorClassIdentifier: 
   speaker1:
-    character: {fileID: 11400000, guid: 1521cd8cc47bc9d478fdef376d1711b5, type: 2}
-    sentences:
-    - Hi what is your name?
-    - Cool name!
-  speaker2:
     character: {fileID: 11400000, guid: d57a6dba3a54a574ebcdae715413ac8a, type: 2}
     sentences:
-    - Hi, my name is Me
-    - Thank you!
+    - I would like to buy the Chocolate flavour!
+    - Oh, okey... sorry I didn't know that.
+  speaker2:
+    character: {fileID: 11400000, guid: 1521cd8cc47bc9d478fdef376d1711b5, type: 2}
+    sentences:
+    - Wow... I do not like that falvour at all.
+    - I have told you what flavour I liked, I really hoped you would notice me...

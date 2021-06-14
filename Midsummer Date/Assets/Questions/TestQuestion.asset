@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad3eac21c28f29439c216d6ba8c6d3a, type: 3}
+  m_Name: TestQuestion
+  m_EditorClassIdentifier: 
+  text: What Icecream flavour are you gonna buy?
+  choices:
+  - text: Vanilla
+    conversation: {fileID: 11400000, guid: 8b4c988efc3579647973bf97b77b0374, type: 2}
+  - text: Strawberry
+    conversation: {fileID: 11400000, guid: bdefaadfbc8a66e49bb5b0bb689bdf2d, type: 2}
+  - text: Chocolate
+    conversation: {fileID: 11400000, guid: 01fba5e69cc90a94db4145e7e103a742, type: 2}
