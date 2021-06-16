@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-
 
 [System.Serializable]
 public struct Choice

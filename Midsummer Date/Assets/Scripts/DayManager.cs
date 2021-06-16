@@ -13,9 +13,9 @@ public class DayManager : MonoBehaviour
     private Transform lightsTransfom;
     private int date = 22;
     private string dateString = " June ";
-
+  
     public enum TimeOfDay { Morning, Midday, Evening};
-    TimeOfDay currentTime;
+    public TimeOfDay currentTime;
 
     public static DayManager Instance { get { return instance; } }
 
@@ -34,17 +34,47 @@ public class DayManager : MonoBehaviour
 
     private void Start()
     {
-        dateString = date.ToString() + dateString;
-        dateText.text = dateString;
+        dateText.text = date.ToString() + dateString;
+        currentTime = TimeOfDay.Midday;
+        timeText.text = currentTime.ToString();
 
         lightSettings = lightSettings.GetComponent<Light>();
         lightsTransfom = lightSettings.GetComponent<Transform>();
+
         UpdateTime();
     }
 
     public void UpdateTime()
     {
         //Get values from jsonfile when we have a saving funktions
+    }
 
+    public void ChangeTime(int timeIndex)
+    {
+        currentTime = (TimeOfDay)timeIndex;
+        switch (currentTime)
+        {
+            case TimeOfDay.Morning:
+                NextDay();
+                timeText.text = currentTime.ToString();
+                lightsTransfom.rotation = Quaternion.Euler(-33, -30, 0);
+                break;
+
+            case TimeOfDay.Midday:
+                timeText.text = currentTime.ToString();
+                lightsTransfom.rotation = Quaternion.Euler(50, -30, 0);
+                break;
+
+            case TimeOfDay.Evening:
+                timeText.text = currentTime.ToString();
+                lightsTransfom.rotation = Quaternion.Euler(140, -30, 0);
+                break;
+        }
+    }
+
+    public void NextDay()
+    {
+        date++;
+        dateText.text = date.ToString() + dateString;
     }
 }

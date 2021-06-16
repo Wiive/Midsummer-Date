@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UIElements;
-using UnityEngine.PlayerLoop;
-using UnityEngine.Events;
-using System.Linq;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -89,8 +86,14 @@ public class DialogueManager : MonoBehaviour
         skipped = false;
         if (sentences.Count == 0)
         {
-            //EndDialogue();
-            EndConversation();
+            if (havingConversation)
+            {
+                EndConversation();
+            }
+            else
+            {
+                EndDialogue();
+            }
             return;
         }
 
@@ -107,8 +110,7 @@ public class DialogueManager : MonoBehaviour
             {
                 speakerName.text = conversation.speaker2.character.speakerName;
             }
-            speaker1Active = !speaker1Active;
-                            
+            speaker1Active = !speaker1Active;                          
         }
 
         if (skipped)

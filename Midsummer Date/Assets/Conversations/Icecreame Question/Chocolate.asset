@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a2d4ed0da7ce04abbde6f5c632e54e, type: 3}
   m_Name: Chocolate
   m_EditorClassIdentifier: 
+  loveScore: -1
   speaker1:
     character: {fileID: 11400000, guid: d57a6dba3a54a574ebcdae715413ac8a, type: 2}
     sentences:
@@ -22,3 +23,5 @@ MonoBehaviour:
     sentences:
     - Wow... I do not like that falvour at all.
     - I have told you what flavour I liked, I really hoped you would notice me...
+  question: {fileID: 0}
+  nextConversation: {fileID: 0}

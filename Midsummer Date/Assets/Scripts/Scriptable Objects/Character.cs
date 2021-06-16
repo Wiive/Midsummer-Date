@@ -7,5 +7,5 @@ using UnityEngine;
 public class Character : ScriptableObject
 {
     public string speakerName;
-    public GameObject prefab;    
+    public GameObject prefab;
 }
