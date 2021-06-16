@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
     public QuestionController questionController;
 
     public Animator animator;
+    public GameObject hideButton;
+    public GameObject showButton;
 
     public bool canSkip;
     public bool skipped;
@@ -188,4 +190,17 @@ public class DialogueManager : MonoBehaviour
         endOfDialogue.Invoke();
     }
 
+    public void HidWindow()
+    {
+        animator.SetBool("IsOpen", false);
+        hideButton.SetActive(false);
+        showButton.SetActive(true);
+    }
+
+    public void ShowWindow()
+    {
+        animator.SetBool("IsOpen", true);
+        hideButton.SetActive(true);
+        showButton.SetActive(false);
+    }
 }
