@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -18,9 +19,12 @@ public class DialogueManager : MonoBehaviour
     public GameObject showButton;
 
     public bool canSkip;
-    public bool skipped;
+
+    public GameObject loveMeter;
+    private float loveMeterValue;
 
     private Queue<string> sentences;
+    private string activeSentenc;
     private Conversation conversation;
     private bool havingConversation;
     private bool speaker1Active;
@@ -51,6 +55,8 @@ public class DialogueManager : MonoBehaviour
         }
         
         sentences = new Queue<string>();
+
+        loveMeter.SetActive(false);
     }
 
     private void Update()
@@ -59,8 +65,10 @@ public class DialogueManager : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
-                Debug.Log("You skipped clicked");
-                skipped = true;
+                if (activeSentenc != null)
+                {
+                    SkipTypeSentence();
+                }             
             }
         }
     }
@@ -83,9 +91,40 @@ public class DialogueManager : MonoBehaviour
     }
 
 
+    public void StartConversation(Conversation conversation)
+    {
+        animator.SetBool("IsOpen", true);
+
+        havingConversation = true;
+
+        speaker1Active = true;
+
+        if (conversation == null)
+        {
+            Debug.LogError("You havn't added a conversation to this speaker");
+        }
+
+        this.conversation = conversation;
+
+        UpdateLoveMeter();
+
+        var speaker1 = conversation.speaker1;
+        var speaker2 = conversation.speaker2;
+
+        sentences.Clear();
+
+        for (int i = 0; i < speaker1.sentences.Length; i++)
+        {
+            sentences.Enqueue(speaker1.sentences[i]);
+            sentences.Enqueue(speaker2.sentences[i]);
+        }
+
+        DisplayNextSentence();
+        canSkip = true;
+    }
+
     public void DisplayNextSentence()
     {
-        skipped = false;
         if (sentences.Count == 0)
         {
             if (havingConversation)
@@ -100,6 +139,8 @@ public class DialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
+        activeSentenc = sentence;
+
         StopAllCoroutines();
 
         if (havingConversation)
@@ -115,17 +156,7 @@ public class DialogueManager : MonoBehaviour
             speaker1Active = !speaker1Active;                          
         }
 
-        if (skipped)
-        {
-            Debug.Log("Trying to skip type");
-            StopAllCoroutines();
-            dialogueText.text = sentence;
-        }
-        else
-        {
-            StartCoroutine(TypeSentence(sentence));
-        }
-
+        StartCoroutine(TypeSentence(sentence));
     }
 
     IEnumerator TypeSentence(string sentence)
@@ -143,32 +174,8 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         canSkip = false;
-        skipped = false;
         endOfDialogue.Invoke();
-    }
-
-    public void StartConversation(Conversation conversation)
-    {
-        animator.SetBool("IsOpen", true);
-        havingConversation = true;
-        speaker1Active = true;
-
-        if (conversation == null)
-        {
-            Debug.LogError("You havn't added a conversation to this speaker");
-        }
-
-        this.conversation = conversation;
-        var speaker1 = conversation.speaker1;
-        var speaker2 = conversation.speaker2;
-
-        for (int i = 0; i < speaker1.sentences.Length; i++)
-        {
-           sentences.Enqueue(speaker1.sentences[i]);
-           sentences.Enqueue(speaker2.sentences[i]);
-        }
-
-        DisplayNextSentence();
+        activeSentenc = null;
     }
 
     public void EndConversation()
@@ -186,8 +193,33 @@ public class DialogueManager : MonoBehaviour
         {
             animator.SetBool("IsOpen", false);
             havingConversation = false;
+            DayManager.Instance.ChangeTime((int)DayManager.Instance.currentTime + 1); //Just testing
         }
         endOfDialogue.Invoke();
+        activeSentenc = null;
+    }
+
+    public void SkipTypeSentence()
+    {
+        StopAllCoroutines();
+        dialogueText.text = activeSentenc;
+    }
+
+    public void UpdateLoveMeter()
+    {
+        Slider slider = loveMeter.GetComponent<Slider>();
+        float loveValue = conversation.loveScore;
+
+        if (loveValue == 0)
+        {
+            loveMeter.SetActive(false);
+        }
+        else
+        {
+            loveMeter.SetActive(true);
+        }
+        loveMeterValue += loveValue;
+        slider.value = loveMeterValue;
     }
 
     public void HidWindow()

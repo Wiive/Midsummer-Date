@@ -51,6 +51,10 @@ public class DayManager : MonoBehaviour
 
     public void ChangeTime(int timeIndex)
     {
+        if (timeIndex > 2)
+        {
+            timeIndex = 0;
+        }
         currentTime = (TimeOfDay)timeIndex;
         switch (currentTime)
         {
@@ -72,7 +76,20 @@ public class DayManager : MonoBehaviour
         }
     }
 
-    public void NextDay()
+    IEnumerator FadeLightning(int lightAngleValue, int newLightAngle)
+    {
+        if (lightAngleValue < newLightAngle)
+        {
+            lightAngleValue++;
+        }
+        else if (lightAngleValue > newLightAngle)
+        {
+            lightAngleValue--;
+        }
+        yield return new WaitForSeconds(0.01f);
+    }
+
+    private void NextDay()
     {
         date++;
         dateText.text = date.ToString() + dateString;

@@ -247,7 +247,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 672544477}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -1699,9 +1699,22 @@ MonoBehaviour:
   showButton: {fileID: 2201349493399364086}
   canSkip: 0
   skipped: 0
+  loveMeter: {fileID: 75439253}
   endOfDialogue:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 75439253}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8960310588210193341
 GameObject:
   m_ObjectHideFlags: 0

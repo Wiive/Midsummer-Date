@@ -9,29 +9,20 @@ public abstract class Speaker : MonoBehaviour
     public void StartDialogue()
     {
         DialogueManager.Instance.StartDialogue(dialogue);
+
+        if (gameObject.GetComponent<Button>() == true)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void StartConversation()
     {
         DialogueManager.Instance.StartConversation(conversation);
-        if (FindLoveMeter() != null)
+
+        if (gameObject.GetComponent<Button>() == true)
         {
-            UpdateLoveMeter();
+            gameObject.SetActive(false);
         }
-    }
-
-    public Slider FindLoveMeter()
-    {
-        GameObject loveMeter = GameObject.FindGameObjectWithTag("LoveMeter");
-        Slider loveMeterSlider = loveMeter.GetComponent<Slider>();
-        return loveMeterSlider;
-    }
-
-    public void UpdateLoveMeter()
-    {
-        float loveValue = conversation.loveScore;
-        GameObject loveMeter = GameObject.FindGameObjectWithTag("LoveMeter");
-        Slider loveMeterSlider = loveMeter.GetComponent<Slider>();
-        loveMeterSlider.value += loveValue;
     }
 }
