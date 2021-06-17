@@ -13,7 +13,10 @@ public class DayManager : MonoBehaviour
     private Transform lightsTransfom;
     private int date = 22;
     private string dateString = " June ";
-  
+
+    private int currentDay = 1;
+    public int CurrentDay { get { return currentDay; } }
+
     public enum TimeOfDay { Morning, Midday, Evening};
     public TimeOfDay currentTime;
 
@@ -91,7 +94,10 @@ public class DayManager : MonoBehaviour
 
     private void NextDay()
     {
+        currentDay++;
         date++;
         dateText.text = date.ToString() + dateString;
+        ActivitiesManager activitiesManager = FindObjectOfType<ActivitiesManager>();
+        activitiesManager.UpdateActivities();
     }
 }

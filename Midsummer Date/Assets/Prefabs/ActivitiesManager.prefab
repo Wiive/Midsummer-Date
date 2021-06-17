@@ -723,6 +723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cad1ab759ca533f43be8e4d9713fa457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activitiesButtons:
+  day1ActivitiesButtons:
   - {fileID: 1570663071}
+  day2ActivitiesButtons:
   - {fileID: 2059481183}
+  day3ActivitiesButtons: []
+  allActivitesButtons: []
