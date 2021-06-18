@@ -68,9 +68,15 @@ public class DialogueManager : MonoBehaviour
                 if (activeSentenc != null)
                 {
                     SkipTypeSentence();
-                }             
+                }
             }
         }
+    }
+
+    public void SkipTypeSentence()
+    {
+        StopAllCoroutines();
+        dialogueText.text = activeSentenc;
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -90,7 +96,6 @@ public class DialogueManager : MonoBehaviour
         canSkip = true;
     }
 
-
     public void StartConversation(Conversation conversation)
     {
         animator.SetBool("IsOpen", true);
@@ -105,9 +110,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         this.conversation = conversation;
-
-        UpdateLoveMeter();
-
         var speaker1 = conversation.speaker1;
         var speaker2 = conversation.speaker2;
 
@@ -119,8 +121,28 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(speaker2.sentences[i]);
         }
 
+        UpdateLoveMeter();
+
         DisplayNextSentence();
+
         canSkip = true;
+    }
+
+    public void UpdateLoveMeter()
+    {
+        Slider slider = loveMeter.GetComponent<Slider>();
+        float loveValue = conversation.loveScore;
+
+        if (loveValue == 0)
+        {
+            loveMeter.SetActive(false);
+        }
+        else
+        {
+            loveMeter.SetActive(true);
+        }
+        loveMeterValue += loveValue;
+        slider.value = loveMeterValue;
     }
 
     public void DisplayNextSentence()
@@ -145,41 +167,14 @@ public class DialogueManager : MonoBehaviour
 
         if (havingConversation)
         {
-            if (speaker1Active)
-            {
-                speakerName.text = conversation.speaker1.character.speakerName;
-            }
-            else
-            {
-                speakerName.text = conversation.speaker2.character.speakerName;
-            }
-            speaker1Active = !speaker1Active;                          
+            SetSpeakerName();
         }
 
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence(string sentence)
-    {
-        dialogueText.text = "";
-
-        foreach (char letter in sentence.ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(dialogueSpeed);
-        }
-    }
-
-    public void EndDialogue()
-    {
-        animator.SetBool("IsOpen", false);
-        canSkip = false;
-        endOfDialogue.Invoke();
-        activeSentenc = null;
-    }
-
     public void EndConversation()
-    {       
+    {
         if (conversation.nextConversation != null)
         {
             StartConversation(conversation.nextConversation);
@@ -199,27 +194,36 @@ public class DialogueManager : MonoBehaviour
         activeSentenc = null;
     }
 
-    public void SkipTypeSentence()
+    public void EndDialogue()
     {
-        StopAllCoroutines();
-        dialogueText.text = activeSentenc;
+        animator.SetBool("IsOpen", false);
+        canSkip = false;
+        endOfDialogue.Invoke();
+        activeSentenc = null;
     }
 
-    public void UpdateLoveMeter()
+    public void SetSpeakerName()
     {
-        Slider slider = loveMeter.GetComponent<Slider>();
-        float loveValue = conversation.loveScore;
-
-        if (loveValue == 0)
+        if (speaker1Active)
         {
-            loveMeter.SetActive(false);
+            speakerName.text = conversation.speaker1.character.speakerName;
         }
         else
         {
-            loveMeter.SetActive(true);
+            speakerName.text = conversation.speaker2.character.speakerName;
         }
-        loveMeterValue += loveValue;
-        slider.value = loveMeterValue;
+        speaker1Active = !speaker1Active;
+    }
+
+    IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(dialogueSpeed);
+        }
     }
 
     public void HidWindow()
