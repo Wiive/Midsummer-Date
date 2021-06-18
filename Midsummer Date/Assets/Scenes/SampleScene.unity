@@ -272,7 +272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 163, y: -420}
+  m_AnchoredPosition: {x: -7, y: -99}
   m_SizeDelta: {x: 259.93677, y: 90.74585}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &540710410 stripped
@@ -1014,8 +1014,12 @@ PrefabInstance:
       value: 90.74579
       objectReference: {fileID: 0}
     - target: {fileID: 1570663072, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -328
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570663072, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -420
+      value: -99
       objectReference: {fileID: 0}
     - target: {fileID: 1570663073, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
       propertyPath: loveMeter
@@ -1043,11 +1047,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2059481184, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 451
+      value: 281
       objectReference: {fileID: 0}
     - target: {fileID: 2059481184, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -420
+      value: -99
       objectReference: {fileID: 0}
     - target: {fileID: 3774194555747809796, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
       propertyPath: day3ActivitiesButtons.Array.size
