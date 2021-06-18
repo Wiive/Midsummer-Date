@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a2d4ed0da7ce04abbde6f5c632e54e, type: 3}
+  m_Name: Vanilla Flavor Branch
+  m_EditorClassIdentifier: 
+  loveScore: 5
+  speaker1:
+    character: {fileID: 11400000, guid: 1521cd8cc47bc9d478fdef376d1711b5, type: 2}
+    sentences:
+    - Vanilla is such a normal flavour. But I guess you are a little bit cute to
+      choice it for me!
+    - That made you speach less.. hihi even cuter!
+    - Yes definently. We are kind to people in a weird way from time to time.
+    - 'Haha maybe we all need to be a little normally weird from time to time!
+
+      Some
+      ones favorite color can tell alot about someone, so I wounder what is your?'
+  speaker2:
+    character: {fileID: 11400000, guid: d57a6dba3a54a574ebcdae715413ac8a, type: 2}
+    sentences:
+    - (Wow, she is calling me cute, can it mean something?)
+    - '*Blush* thank you. No one exept my mum have never called me cute before. Is
+      it a swedish thing?'
+    - That is cool I like weird. Makes me feel more normal.
+    - My favorit color is...
+  question: {fileID: 11400000, guid: 57f20ae944261a941bea62e1d5ecc27f, type: 2}
+  nextConversation: {fileID: 0}

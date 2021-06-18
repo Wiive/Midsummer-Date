@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad3eac21c28f29439c216d6ba8c6d3a, type: 3}
+  m_Name: FavoriteColorQuestion
+  m_EditorClassIdentifier: 
+  text: What is you favorite color?
+  choices:
+  - text: Black
+    conversation: {fileID: 11400000, guid: 2684bf8e2e674f344a409aa857a16d6e, type: 2}
+  - text: Blue
+    conversation: {fileID: 11400000, guid: 247bdfd4574c31c4895785867ac01b34, type: 2}
+  - text: Green
+    conversation: {fileID: 11400000, guid: e01b7c93a910a534db9216f668523e79, type: 2}
+  - text: Pink
+    conversation: {fileID: 11400000, guid: 80c5742dab64252438f247c3f07ec820, type: 2}
