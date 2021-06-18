@@ -76,4 +76,9 @@ public class ActivitiesManager : MonoBehaviour
             }
         }
     }
+
+    public void CurrentActivities()
+    {
+        //Check what time of the day it is and remove none doable activites.
+    }
 }

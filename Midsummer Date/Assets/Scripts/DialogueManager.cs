@@ -29,9 +29,6 @@ public class DialogueManager : MonoBehaviour
     private bool havingConversation;
     private bool speaker1Active;
 
-    //Quick fix, will rework later
-    public UnityEvent endOfDialogue;
-
     public static DialogueManager Instance { get { return instance; } }
 
     void Awake()
@@ -48,12 +45,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     void Start()
-    {               
-        if (endOfDialogue == null)
-        {
-            endOfDialogue = new UnityEvent();
-        }
-        
+    {                      
         sentences = new Queue<string>();
 
         loveMeter.SetActive(false);
@@ -175,6 +167,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndConversation()
     {
+        loveMeter.SetActive(false);
         if (conversation.nextConversation != null)
         {
             StartConversation(conversation.nextConversation);
@@ -190,7 +183,6 @@ public class DialogueManager : MonoBehaviour
             havingConversation = false;
             DayManager.Instance.ChangeTime((int)DayManager.Instance.currentTime + 1); //Just testing
         }
-        endOfDialogue.Invoke();
         activeSentenc = null;
     }
 
@@ -198,7 +190,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         canSkip = false;
-        endOfDialogue.Invoke();
+        loveMeter.SetActive(false);
         activeSentenc = null;
     }
 
