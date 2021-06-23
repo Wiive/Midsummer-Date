@@ -11,6 +11,7 @@ public class DayManager : MonoBehaviour
     public TextMeshProUGUI timeText;
     public Light lightSettings;
     private Transform lightsTransfom;
+
     private int date = 22;
     private string dateString = " June ";
 
@@ -98,11 +99,16 @@ public class DayManager : MonoBehaviour
         date++;
         dateText.text = date.ToString() + dateString;
 
+        ShowActivitesCanvas();
+    }
+
+    public void ShowActivitesCanvas()
+    {
         ActivitiesManager activitiesManager = FindObjectOfType<ActivitiesManager>();
 
         Canvas canvas = activitiesManager.GetComponentInChildren<Canvas>();
         canvas.enabled = true;
 
         activitiesManager.UpdateActivities();
-    }
+    }  
 }
