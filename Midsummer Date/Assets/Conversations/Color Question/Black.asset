@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loveScore: 5
   speaker1:
-    character: {fileID: 0}
-    sentences: []
+    character: {fileID: 11400000, guid: f001ce062c535974d913adbeec86ac89, type: 2}
+    sentences:
+    - Wait a minute... Who are you?
+    - "I am Bert. The boss over this Caf\xE9. I havn't seen you around here before.
+      Where are you from?"
   speaker2:
-    character: {fileID: 0}
-    sentences: []
-  question: {fileID: 0}
+    character: {fileID: 11400000, guid: d57a6dba3a54a574ebcdae715413ac8a, type: 2}
+    sentences:
+    - Uhm... I am Me. Nice to meet you, who are you?
+    - '*Thinking*'
+  question: {fileID: 11400000, guid: e857b203b0f44a64794bc112251994bc, type: 2}
   nextConversation: {fileID: 0}

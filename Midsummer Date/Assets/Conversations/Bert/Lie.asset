@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a2d4ed0da7ce04abbde6f5c632e54e, type: 3}
+  m_Name: Lie
+  m_EditorClassIdentifier: 
+  loveScore: 0
+  speaker1:
+    character: {fileID: 11400000, guid: d57a6dba3a54a574ebcdae715413ac8a, type: 2}
+    sentences:
+    - I'm from the UK.
+    - They are on a trip to Stochkolm right now. Getting back in Midsummer eve.
+  speaker2:
+    character: {fileID: 11400000, guid: f001ce062c535974d913adbeec86ac89, type: 2}
+    sentences:
+    - Okey, you look pretty young to be traveling alone? Where is your parents?
+    - I hope you and them has a nice visit then. See you around.
+  question: {fileID: 0}
+  nextConversation: {fileID: 0}
