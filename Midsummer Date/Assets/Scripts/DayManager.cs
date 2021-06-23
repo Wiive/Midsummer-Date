@@ -97,7 +97,12 @@ public class DayManager : MonoBehaviour
         currentDay++;
         date++;
         dateText.text = date.ToString() + dateString;
+
         ActivitiesManager activitiesManager = FindObjectOfType<ActivitiesManager>();
+
+        Canvas canvas = activitiesManager.GetComponentInChildren<Canvas>();
+        canvas.enabled = true;
+
         activitiesManager.UpdateActivities();
     }
 }
