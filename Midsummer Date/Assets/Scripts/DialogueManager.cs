@@ -29,6 +29,8 @@ public class DialogueManager : MonoBehaviour
     private bool havingConversation;
     private bool speaker1Active;
 
+    private AudioSource audioSource;
+
     public static DialogueManager Instance { get { return instance; } }
 
     void Awake()
@@ -47,6 +49,8 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {                      
         sentences = new Queue<string>();
+
+        audioSource = GetComponent<AudioSource>();
 
         loveMeter.SetActive(false);
     }
@@ -151,6 +155,8 @@ public class DialogueManager : MonoBehaviour
             }
             return;
         }
+
+        audioSource.Play();
 
         string sentence = sentences.Dequeue();
         activeSentenc = sentence;
