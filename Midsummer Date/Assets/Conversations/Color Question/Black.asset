@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a2d4ed0da7ce04abbde6f5c632e54e, type: 3}
   m_Name: Black
   m_EditorClassIdentifier: 
-  loveScore: 5
+  loveScore: 0
   speaker1:
     character: {fileID: 11400000, guid: f001ce062c535974d913adbeec86ac89, type: 2}
     sentences:
