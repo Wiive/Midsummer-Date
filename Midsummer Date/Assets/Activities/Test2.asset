@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b06731759ad92e439d45ad85bd54b23, type: 3}
+  m_Name: Test2
+  m_EditorClassIdentifier: 
+  title: Cykel
+  picture: {fileID: -7580170136526657814, guid: d0cc4c6722b906b489ef2df85380101c, type: 3}
+  activeTime: 0
+  conversation: {fileID: 11400000, guid: 2684bf8e2e674f344a409aa857a16d6e, type: 2}

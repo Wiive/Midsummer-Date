@@ -39,13 +39,12 @@ public class DayManager : MonoBehaviour
     private void Start()
     {
         dateText.text = date.ToString() + dateString;
-        currentTime = TimeOfDay.Midday;
         timeText.text = currentTime.ToString();
 
         lightSettings = lightSettings.GetComponent<Light>();
         lightsTransfom = lightSettings.GetComponent<Transform>();
 
-        UpdateTime();
+        //UpdateTime();
     }
 
     public void UpdateTime()

@@ -11,6 +11,7 @@ public class ActivitiesManager : MonoBehaviour
     [SerializeField] List<GameObject> allActivitesButtons;
     private void Start()
     {
+        //THIS LOOKS BAD need to make it nice and scalable
         if (day1ActivitiesButtons.Count == 0)
         {
             Debug.LogError("No Day 1 Activites are imported to " + gameObject.name);
@@ -49,6 +50,7 @@ public class ActivitiesManager : MonoBehaviour
 
     //Maybe implement a way to see wath time of the day it is here to
     //And make UpdateActivites to a switch, much better to scale and probebly better performance?
+    //Or only 3 activites that update their Activity on them based on time?
 
     public void UpdateActivities()
     {

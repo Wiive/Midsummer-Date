@@ -143,6 +143,8 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        audioSource.Play();
+
         if (sentences.Count == 0)
         {
             if (havingConversation)
@@ -156,9 +158,8 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        audioSource.Play();
-
         string sentence = sentences.Dequeue();
+
         activeSentenc = sentence;
 
         StopAllCoroutines();
@@ -216,6 +217,11 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
+
+        if (sentence == "") // Enables monolog parts for one character
+        {
+            DisplayNextSentence();
+        }
 
         foreach (char letter in sentence.ToCharArray())
         {
