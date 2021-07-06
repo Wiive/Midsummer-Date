@@ -17,15 +17,15 @@ public class DayInformation : Information
         {
             case 1:
                 title = "22 June";
-                information = "Two days before Midsummer Eve";
+                information = "It's a new day! \r\n Two days before Midsummer Eve";
                 break;
             case 2:
                 title = "23 June";
-                information = "Tomorrow is Midsummer Eve";
+                information = "It's a new day! \r\n Tomorrow is Midsummer Eve";
                 break;
             case 3:
                 title = "24 June";
-                information = "Today is Midsummer Eve";
+                information = "It's a new day! \r\n Today is Midsummer Eve";
                 break;
         }
     }

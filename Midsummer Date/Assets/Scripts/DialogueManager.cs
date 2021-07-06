@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
 
     public TextMeshProUGUI speakerName;
     public TextMeshProUGUI dialogueText;
-    private float dialogueSpeed = 0.01f;
+    private float dialogueSpeed = 0.005f;
     public QuestionController questionController;
 
     public Animator animator;
