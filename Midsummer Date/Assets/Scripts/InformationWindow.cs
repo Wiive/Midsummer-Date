@@ -50,5 +50,8 @@ public class InformationWindow : MonoBehaviour
         informationText.text = information.information;
         image1.sprite = information.image;
         image2.sprite = information.image;
+
+        Canvas canvas = GetComponentInChildren<Canvas>();
+        canvas.enabled = true;
     }
 }

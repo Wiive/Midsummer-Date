@@ -98,7 +98,11 @@ public class DayManager : MonoBehaviour
         date++;
         dateText.text = date.ToString() + dateString;
 
-        ShowActivitesCanvas();
+        DayInformation newDay = ScriptableObject.CreateInstance<DayInformation>();
+        InformationWindow.Instance.NewInformation(newDay);
+
+
+        //ShowActivitesCanvas();
     }
 
     public void ShowActivitesCanvas()

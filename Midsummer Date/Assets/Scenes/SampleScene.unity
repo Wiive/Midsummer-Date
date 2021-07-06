@@ -1506,6 +1506,10 @@ PrefabInstance:
       propertyPath: information
       value: 
       objectReference: {fileID: 11400000, guid: 4c4403f2883c1d744a5dea4736626a8e, type: 2}
+    - target: {fileID: 322492586035903773, guid: fb07395451521254cb2cf74c15a35f04, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb07395451521254cb2cf74c15a35f04, type: 3}
 --- !u!1001 &6002261088439017408
@@ -1533,6 +1537,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 480409333112587285, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265093932419956554, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
+      propertyPath: m_text
+      value: Activites
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265093932419956554, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265093932419956554, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
+      propertyPath: m_fontSize
+      value: 48.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1368093626316291143, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1368093626316291143, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
@@ -1617,7 +1637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6002261088439017410, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
       propertyPath: currentTime
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6680629471382763303, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
       propertyPath: m_AnchoredPosition.y
