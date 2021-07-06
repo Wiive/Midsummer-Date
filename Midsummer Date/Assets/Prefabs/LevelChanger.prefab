@@ -32,7 +32,7 @@ RectTransform:
   m_Children:
   - {fileID: 8162645059804268104}
   m_Father: {fileID: 8162645060724962258}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 8162645060497726101}
   - component: {fileID: 8162645060497726100}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,7 +208,7 @@ RectTransform:
   - {fileID: 2763302799591346408}
   - {fileID: 1686648540051638733}
   m_Father: {fileID: 8162645060724962258}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -305,8 +305,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8162645059579719038}
   - {fileID: 8162645060497726103}
+  - {fileID: 8162645059579719038}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

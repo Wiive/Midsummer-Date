@@ -14,6 +14,8 @@ public class SetUpActivity : MonoBehaviour
     private DateSpeaker trigger;
     private Button button;
 
+    private HUDManager hudManagar;
+
     private void Start()
     {
         title = title.GetComponent<TextMeshProUGUI>();
@@ -34,5 +36,11 @@ public class SetUpActivity : MonoBehaviour
 
         button = GetComponent<Button>();
         button.onClick.AddListener(trigger.StartConversation);
+
+        hudManagar = FindObjectOfType<HUDManager>();
+        if (hudManagar != null)
+        {
+            button.onClick.AddListener(hudManagar.DialogueCanvas);
+        }
     }
 }

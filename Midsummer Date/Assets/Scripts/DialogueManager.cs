@@ -189,6 +189,8 @@ public class DialogueManager : MonoBehaviour
             animator.SetBool("IsOpen", false);
             havingConversation = false;
             DayManager.Instance.ChangeTime((int)DayManager.Instance.currentTime + 1); //Just testing
+            HUDManager hudManager = FindObjectOfType<HUDManager>();
+            hudManager.UpdateCanvas();
         }
         activeSentenc = null;
     }
@@ -199,6 +201,8 @@ public class DialogueManager : MonoBehaviour
         canSkip = false;
         loveMeter.SetActive(false);
         activeSentenc = null;
+        HUDManager hudManager = FindObjectOfType<HUDManager>();
+        hudManager.UpdateCanvas();
     }
 
     public void SetSpeakerName()

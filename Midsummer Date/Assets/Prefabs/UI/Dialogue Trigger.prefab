@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 145118318288931852}
   - component: {fileID: 145118318288931853}
   - component: {fileID: 145118318288931854}
+  - component: {fileID: 6634400281049492728}
   m_Layer: 5
   m_Name: Dialogue Trigger
   m_TagString: Untagged
@@ -169,6 +170,21 @@ MonoBehaviour:
   conversation: {fileID: 0}
   loveValue: 5
   loveMeter: {fileID: 0}
+--- !u!114 &6634400281049492728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145118318288931888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7cb7ca0f00c13544be56be0599bc268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activity: {fileID: 11400000, guid: 6619d4daaa876a24fad18820b5dad688, type: 2}
+  title: {fileID: 145118318386282482}
+  icon: {fileID: 5771036370880890121}
 --- !u!1 &145118318386282484
 GameObject:
   m_ObjectHideFlags: 0
