@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd03d6d960694840977d0e39987c925, type: 3}
+  m_Name: Woods
+  m_EditorClassIdentifier: 
+  title: Woods
+  information: The woods brings some protection from the sun and you feel the heat
+    from the sun leaving you for a little while.
+  image: {fileID: 21300000, guid: b97105b86c987e646b517026fcac4218, type: 3}
