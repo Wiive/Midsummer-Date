@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a2d4ed0da7ce04abbde6f5c632e54e, type: 3}
   m_Name: Ana & Player Icecream
   m_EditorClassIdentifier: 
-  loveScore: 1
+  loveScore: 10
   speaker1:
     character: {fileID: 11400000, guid: 1521cd8cc47bc9d478fdef376d1711b5, type: 2}
     sentences:
