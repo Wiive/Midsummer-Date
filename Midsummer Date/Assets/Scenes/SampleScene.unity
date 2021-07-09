@@ -322,11 +322,43 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -80
       objectReference: {fileID: 0}
+    - target: {fileID: 546158920569374280, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 546158920569374280, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 546158920569374280, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 878148078}
+    - target: {fileID: 546158920569374280, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 546158920569374280, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: UpdateCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 546158920569374280, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: HUDManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 546158920569374280, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1324742362722955979, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1478712308685159852, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530285463916352256, guid: 334d91faca2525e4ab512bdfe7044e13, type: 3}
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
@@ -890,7 +922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9028481345410849983, guid: f1aa877bab4cc884ea8e5c1163936752, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.536655
+      value: 0.44254193
       objectReference: {fileID: 0}
     - target: {fileID: 9028481345410849983, guid: f1aa877bab4cc884ea8e5c1163936752, type: 3}
       propertyPath: m_LocalRotation.x
@@ -898,7 +930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9028481345410849983, guid: f1aa877bab4cc884ea8e5c1163936752, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.8438018
+      value: -0.8967478
       objectReference: {fileID: 0}
     - target: {fileID: 9028481345410849983, guid: f1aa877bab4cc884ea8e5c1163936752, type: 3}
       propertyPath: m_LocalRotation.z
@@ -910,7 +942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9028481345410849983, guid: f1aa877bab4cc884ea8e5c1163936752, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -115.088
+      value: -127.468
       objectReference: {fileID: 0}
     - target: {fileID: 9028481345410849983, guid: f1aa877bab4cc884ea8e5c1163936752, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1571,7 +1603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1368093626316291143, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1368093626316291143, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -1644,6 +1676,14 @@ PrefabInstance:
     - target: {fileID: 2326362731482096602, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5376828162175906810, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640742086146935951, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5798021789921023470, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
       propertyPath: m_Enabled

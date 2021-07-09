@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6486297462745782059}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: DayManager, Assembly-CSharp
+        m_MethodName: ShowActivitesCanvas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7645497964250599939
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.2906036, y: -0.38759995}
+  m_AnchoredPosition: {x: -2.2906036, y: -0.38760376}
   m_SizeDelta: {x: -80.4742, y: -16.279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6521370634133119059
@@ -186,7 +198,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Activities
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aacc91d2e2335ff45bb4e56d4f047256, type: 2}
   m_sharedMaterial: {fileID: -7127242266186583982, guid: aacc91d2e2335ff45bb4e56d4f047256, type: 2}

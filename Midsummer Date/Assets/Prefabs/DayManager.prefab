@@ -194,6 +194,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6902092733247391878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929397456301773596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a10c46dbbd491845b72bbf46092ab90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5376828162175906810
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,37 +657,9 @@ PrefabInstance:
       value: Open Activites Button
       objectReference: {fileID: 0}
     - target: {fileID: 2921591395832918458, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921591395832918458, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921591395832918458, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6002261088439017410}
-    - target: {fileID: 2921591395832918458, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921591395832918458, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowActivitesCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921591395832918458, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DayManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2921591395832918458, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3168676204175635127, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
-      propertyPath: m_text
-      value: Activities
-      objectReference: {fileID: 0}
     - target: {fileID: 3168676204175635127, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
       propertyPath: m_fontSize
       value: 55
@@ -764,12 +748,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7404409378125511386, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.38760376
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
+--- !u!1 &2929397456301773596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1355774209950179041, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
+  m_PrefabInstance: {fileID: 4213084477724528125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &23788789081155855 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4189299579900536050, guid: 803b5735d10a43844b98355b4d7463a4, type: 3}
