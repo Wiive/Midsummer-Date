@@ -52,6 +52,9 @@ public class DialogueManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
+        dialogueSpeed = OptionsManager.Instnace.myData.textSpeed; //Keep it here and have an information text that the changes goes by after a restart?
+        loveMeterValue = OptionsManager.Instnace.myData.loveMeter;
+
         loveMeter.SetActive(false);
     }
 
@@ -246,5 +249,10 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", true);
         hideButton.SetActive(true);
         showButton.SetActive(false);
+    }
+
+    public int GetLoveValue()
+    {
+        return (int)loveMeterValue;
     }
 }

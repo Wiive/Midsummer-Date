@@ -1784,7 +1784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6002261088439017410, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
       propertyPath: currentTime
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6680629471382763303, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
       propertyPath: m_AnchoredPosition.y

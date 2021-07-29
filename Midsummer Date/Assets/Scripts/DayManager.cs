@@ -38,18 +38,19 @@ public class DayManager : MonoBehaviour
 
     private void Start()
     {
-        dateText.text = date.ToString() + dateString;
-        timeText.text = currentTime.ToString();
-
         lightSettings = lightSettings.GetComponent<Light>();
         lightsTransfom = lightSettings.GetComponent<Transform>();
 
-        //UpdateTime();
+        UpdateTime();
     }
 
     public void UpdateTime()
     {
-        //Get values from jsonfile when we have a saving funktions
+        currentDay = OptionsManager.Instnace.myData.dayInfo.day;
+        currentTime = (TimeOfDay)OptionsManager.Instnace.myData.dayInfo.time;
+
+        dateText.text = date.ToString() + dateString;
+        timeText.text = currentTime.ToString();
     }
 
     public void ChangeTime(int timeIndex)
@@ -65,16 +66,19 @@ public class DayManager : MonoBehaviour
                 NextDay();
                 timeText.text = currentTime.ToString();
                 lightsTransfom.rotation = Quaternion.Euler(-33, -30, 0);
+                OptionsManager.Instnace.myData.dayInfo.time = (int)currentTime;
                 break;
 
             case TimeOfDay.Midday:
                 timeText.text = currentTime.ToString();
                 lightsTransfom.rotation = Quaternion.Euler(50, -30, 0);
+                OptionsManager.Instnace.myData.dayInfo.time = (int)currentTime;
                 break;
 
             case TimeOfDay.Evening:
                 timeText.text = currentTime.ToString();
                 lightsTransfom.rotation = Quaternion.Euler(140, -30, 0);
+                OptionsManager.Instnace.myData.dayInfo.time = (int)currentTime;
                 break;
         }
     }
@@ -97,12 +101,12 @@ public class DayManager : MonoBehaviour
         currentDay++;
         date++;
         dateText.text = date.ToString() + dateString;
+        OptionsManager.Instnace.myData.dayInfo.day = currentDay;
+        OptionsManager.Instnace.SaveToData();
 
+        Debug.Log("CurrentDay is " + CurrentDay);
         DayInformation newDay = ScriptableObject.CreateInstance<DayInformation>();
         InformationWindow.Instance.NewInformation(newDay);
-
-
-        //ShowActivitesCanvas();
     }
 
     public void ShowActivitesCanvas()
