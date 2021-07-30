@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -38,8 +37,14 @@ public class OptionsManager : MonoBehaviour
 
     public CanvasGroup panelCanvas;
     public TextMeshProUGUI volumeValue;
-    public Slider volume; 
+    public Slider volume;
 
+    public enum SpeedType { Immersive, Vanilla, Quick, Sonic };
+    private SpeedType currentType;
+    private float immersive = 0.05f;
+    private float vanilla = 0.025f;
+    private float quick = 0.005f;
+    private float sonic = 0f;
 
     private void Awake()
     {
@@ -74,7 +79,7 @@ public class OptionsManager : MonoBehaviour
     {
         myData = new SaveData();
         myData.soundVolume = volume.value;
-        myData.textSpeed = 0.005f; //Take from speeds in the toggle menu
+        myData.textSpeed = UpdateTypeSpeed(currentType);
 
         myData.loveMeter = DialogueManager.Instance.GetLoveValue();
         myData.dayInfo = new DayInfo(DayManager.Instance.CurrentDay, (int)DayManager.Instance.currentTime);
@@ -103,13 +108,48 @@ public class OptionsManager : MonoBehaviour
         panelCanvas.blocksRaycasts = false;
     }
 
-    private void UpdateTypeSpeed()
+    //Update the current state on toggle change in options panel. Maybe bad that they have the same name? v
+    public void UpdateTypeSpeed(int speedType)
     {
-        //For types of speed:
-        // Imersive
-        // Vanilla
-        // Quick
-        // Sonic
+        switch((SpeedType)speedType)
+        {
+            case SpeedType.Immersive:
+                currentType = SpeedType.Immersive;
+                break;
+
+            case SpeedType.Vanilla:
+                currentType = SpeedType.Vanilla;
+                break;
+
+            case SpeedType.Quick:
+                currentType = SpeedType.Quick;
+                break;
+
+            case SpeedType.Sonic:
+                currentType = SpeedType.Sonic;
+                break;
+        }
+    }
+
+    //Returns the current speed for the right state. Maybe bad that they have the same name? ^
+    public float UpdateTypeSpeed(Enum speedType)
+    {
+        switch (speedType)
+        {
+            case SpeedType.Immersive:
+                return immersive;
+
+            case SpeedType.Vanilla:
+                return vanilla;
+
+            case SpeedType.Quick:
+                return quick;
+
+            case SpeedType.Sonic:
+                return sonic;
+            default:
+                return quick;
+        }
     }
 
     public void Setup()

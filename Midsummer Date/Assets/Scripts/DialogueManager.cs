@@ -52,7 +52,6 @@ public class DialogueManager : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
-        dialogueSpeed = OptionsManager.Instnace.myData.textSpeed; //Keep it here and have an information text that the changes goes by after a restart?
         loveMeterValue = OptionsManager.Instnace.myData.loveMeter;
 
         loveMeter.SetActive(false);
@@ -146,6 +145,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        dialogueSpeed = OptionsManager.Instnace.myData.textSpeed;
         audioSource.Play();
 
         if (sentences.Count == 0)
