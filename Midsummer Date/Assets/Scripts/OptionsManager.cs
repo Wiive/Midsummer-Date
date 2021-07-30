@@ -13,7 +13,7 @@ public class OptionsManager : MonoBehaviour
     public class SaveData
     {
         public float soundVolume = 50f;
-        public float textSpeed = 0.005f;
+        public SpeedType textSpeed = SpeedType.Quick;
         public DayInfo dayInfo;
         public int loveMeter;
         //private Backlog backlog;
@@ -38,7 +38,9 @@ public class OptionsManager : MonoBehaviour
     public CanvasGroup panelCanvas;
     public TextMeshProUGUI volumeValue;
     public Slider volume;
+    public ToggleGroup toggleValue;
 
+    [Serializable]
     public enum SpeedType { Immersive, Vanilla, Quick, Sonic };
     private SpeedType currentType;
     private float immersive = 0.05f;
@@ -79,7 +81,7 @@ public class OptionsManager : MonoBehaviour
     {
         myData = new SaveData();
         myData.soundVolume = volume.value;
-        myData.textSpeed = UpdateTypeSpeed(currentType);
+        myData.textSpeed = currentType;
 
         myData.loveMeter = DialogueManager.Instance.GetLoveValue();
         myData.dayInfo = new DayInfo(DayManager.Instance.CurrentDay, (int)DayManager.Instance.currentTime);
@@ -156,7 +158,8 @@ public class OptionsManager : MonoBehaviour
     {
         volume.value = myData.soundVolume;
         UpdateVolumeText();
-        //maybe set dialougemanagers typespeed, if i want it to be "public"
+        currentType = myData.textSpeed;
+        UpdateToggle(currentType);
     }
 
     public void UpdateVolumeText()
@@ -164,11 +167,26 @@ public class OptionsManager : MonoBehaviour
         volumeValue.text = volume.value.ToString();
     }
 
+    public void UpdateToggle(SpeedType currentType)
+    {
+        var toggles = toggleValue.GetComponentsInChildren<Toggle>();
+        Toggle activated = toggles[(int)currentType];
+        activated.isOn = true;
+        foreach (Toggle toggle in toggles)
+        {
+            if (toggle != activated)
+            {
+                toggle.isOn = false;
+            }
+        }
+    }
+
     public void ResetOptions()
     {
         myData = new SaveData();
         myData.loveMeter = DialogueManager.Instance.GetLoveValue();
         myData.dayInfo = new DayInfo(DayManager.Instance.CurrentDay, (int)DayManager.Instance.currentTime);
+        myData.textSpeed = SpeedType.Quick;
 
         string json = JsonUtility.ToJson(myData);
 
@@ -180,6 +198,7 @@ public class OptionsManager : MonoBehaviour
     public void ResetGame()
     {
         myData = new SaveData();
+        myData.dayInfo = new DayInfo(1,0);
         
         string json = JsonUtility.ToJson(myData);
 

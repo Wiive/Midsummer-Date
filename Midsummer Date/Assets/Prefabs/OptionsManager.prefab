@@ -659,6 +659,7 @@ MonoBehaviour:
   panelCanvas: {fileID: 3036723078063872999}
   volumeValue: {fileID: 8384331895920306318}
   volume: {fileID: 222700053071474847}
+  toggleValue: {fileID: 3938973394883622299}
 --- !u!1 &222700053172689280
 GameObject:
   m_ObjectHideFlags: 0

@@ -145,7 +145,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        dialogueSpeed = OptionsManager.Instnace.myData.textSpeed;
+        dialogueSpeed = OptionsManager.Instnace.UpdateTypeSpeed(OptionsManager.Instnace.myData.textSpeed);
         audioSource.Play();
 
         if (sentences.Count == 0)
