@@ -1230,6 +1230,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 32315121, guid: f19fafb2bee65c9499ba03c36eb61203, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 75439253, guid: f19fafb2bee65c9499ba03c36eb61203, type: 3}
       propertyPath: m_TagString
       value: LoveMeter

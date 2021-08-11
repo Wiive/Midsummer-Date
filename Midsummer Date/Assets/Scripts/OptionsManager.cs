@@ -77,7 +77,7 @@ public class OptionsManager : MonoBehaviour
     }
 
 
-    public void SaveToData()
+    public void SaveToData() //I should seperate options saves and game progression saved UwU, but I do want options menu to have backlog, binded to the progression!
     {
         myData = new SaveData();
         myData.soundVolume = volume.value;
@@ -85,6 +85,7 @@ public class OptionsManager : MonoBehaviour
 
         myData.loveMeter = DialogueManager.Instance.GetLoveValue();
         myData.dayInfo = new DayInfo(DayManager.Instance.CurrentDay, (int)DayManager.Instance.currentTime);
+        
 
         string json = JsonUtility.ToJson(myData);
 
@@ -184,10 +185,10 @@ public class OptionsManager : MonoBehaviour
     public void ResetOptions()
     {
         myData = new SaveData();
+        myData.textSpeed = SpeedType.Quick;
         myData.loveMeter = DialogueManager.Instance.GetLoveValue();
         myData.dayInfo = new DayInfo(DayManager.Instance.CurrentDay, (int)DayManager.Instance.currentTime);
-        myData.textSpeed = SpeedType.Quick;
-
+        
         string json = JsonUtility.ToJson(myData);
 
         File.WriteAllText(saveFilePath, json);
@@ -199,9 +200,13 @@ public class OptionsManager : MonoBehaviour
     {
         myData = new SaveData();
         myData.dayInfo = new DayInfo(1,0);
-        
+        myData.loveMeter = DialogueManager.Instance.GetLoveValue();
+        myData.dayInfo = new DayInfo(DayManager.Instance.CurrentDay, (int)DayManager.Instance.currentTime);
+
         string json = JsonUtility.ToJson(myData);
 
         File.WriteAllText(saveFilePath, json);
+
+        Setup();
     }
 }

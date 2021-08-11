@@ -58,7 +58,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void Update()
-    {
+    {       
         if (canSkip)
         {
             if (Input.anyKeyDown)
@@ -68,7 +68,7 @@ public class DialogueManager : MonoBehaviour
                     SkipTypeSentence();
                 }
             }
-        }
+        }    
     }
 
     public void SkipTypeSentence()
@@ -134,6 +134,12 @@ public class DialogueManager : MonoBehaviour
         if (loveValue == 0)
         {
             loveMeter.SetActive(false);
+        }
+        else if (loveValue == -100)
+        {
+            loveMeterValue = 0;
+            slider.value = loveMeterValue;
+            return;
         }
         else
         {

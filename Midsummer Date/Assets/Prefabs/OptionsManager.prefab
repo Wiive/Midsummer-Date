@@ -651,9 +651,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myData:
     soundVolume: 0
-    textSpeed: 0.005
+    textSpeed: 0
     dayInfo:
-      day: 0
+      day: 1
       time: 0
     loveMeter: 0
   panelCanvas: {fileID: 3036723078063872999}
