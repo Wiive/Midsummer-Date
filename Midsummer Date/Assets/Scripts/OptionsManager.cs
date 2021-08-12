@@ -37,7 +37,7 @@ public class OptionsManager : MonoBehaviour
 
     public CanvasGroup panelCanvas;
     public TextMeshProUGUI volumeValue;
-    public Slider volume;
+    [SerializeField] Slider volume;
     public ToggleGroup toggleValue;
 
     [Serializable]
@@ -158,14 +158,15 @@ public class OptionsManager : MonoBehaviour
     public void Setup()
     {
         volume.value = myData.soundVolume;
-        UpdateVolumeText();
+        UpdateVolume();
         currentType = myData.textSpeed;
         UpdateToggle(currentType);
     }
 
-    public void UpdateVolumeText()
+    public void UpdateVolume()
     {
         volumeValue.text = volume.value.ToString();
+        AudioListener.volume = volume.value * 0.01f ;
     }
 
     public void UpdateToggle(SpeedType currentType)

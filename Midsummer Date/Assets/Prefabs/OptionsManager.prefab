@@ -594,7 +594,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2009344573701167232}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
-        m_MethodName: UpdateVolumeText
+        m_MethodName: UpdateVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
