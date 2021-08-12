@@ -200,8 +200,8 @@ public class OptionsManager : MonoBehaviour
     {
         myData = new SaveData();
         myData.dayInfo = new DayInfo(1,0);
-        myData.loveMeter = DialogueManager.Instance.GetLoveValue();
-        myData.dayInfo = new DayInfo(DayManager.Instance.CurrentDay, (int)DayManager.Instance.currentTime);
+        DialogueManager.Instance.ResetLoveMeter();
+        DayManager.Instance.UpdateTime();
 
         string json = JsonUtility.ToJson(myData);
 

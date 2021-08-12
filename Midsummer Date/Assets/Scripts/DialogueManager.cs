@@ -135,12 +135,6 @@ public class DialogueManager : MonoBehaviour
         {
             loveMeter.SetActive(false);
         }
-        else if (loveValue == -100)
-        {
-            loveMeterValue = 0;
-            slider.value = loveMeterValue;
-            return;
-        }
         else
         {
             loveMeter.SetActive(true);
@@ -260,5 +254,13 @@ public class DialogueManager : MonoBehaviour
     public int GetLoveValue()
     {
         return (int)loveMeterValue;
+    }
+
+    public void ResetLoveMeter()
+    {
+        Slider slider = loveMeter.GetComponent<Slider>();
+      
+        loveMeterValue = 0;
+        slider.value = loveMeterValue;
     }
 }
