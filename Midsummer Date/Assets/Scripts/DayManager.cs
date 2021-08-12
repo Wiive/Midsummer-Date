@@ -48,7 +48,7 @@ public class DayManager : MonoBehaviour
     {
         currentDay = OptionsManager.Instnace.myData.dayInfo.day;
         currentTime = (TimeOfDay)OptionsManager.Instnace.myData.dayInfo.time;
-
+        date = date + (currentDay - 1);
         dateText.text = date.ToString() + dateString;
         timeText.text = currentTime.ToString();
     }
