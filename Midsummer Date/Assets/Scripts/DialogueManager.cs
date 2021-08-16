@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     public GameObject showButton;
 
     public bool canSkip;
+    private bool startToSkip;
 
     public GameObject loveMeter;
     private float loveMeterValue;
@@ -145,34 +146,43 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        dialogueSpeed = OptionsManager.Instnace.UpdateTypeSpeed(OptionsManager.Instnace.myData.textSpeed);
-        audioSource.Play();
-
-        if (sentences.Count == 0)
+        if (animator.GetBool("IsOpen") == true)
         {
+            dialogueSpeed = OptionsManager.Instnace.UpdateTypeSpeed(OptionsManager.Instnace.myData.textSpeed);
+            audioSource.Play();
+
+            if (sentences.Count == 0)
+            {
+                if (havingConversation)
+                {
+                    EndConversation();
+                }
+                else
+                {
+                    EndDialogue();
+                }
+                return;
+            }
+
+            string sentence = sentences.Dequeue();
+
+            activeSentenc = sentence;
+
+            StopAllCoroutines();
+
             if (havingConversation)
             {
-                EndConversation();
+                SetSpeakerName();
             }
-            else
-            {
-                EndDialogue();
-            }
+
+            StartCoroutine(TypeSentence(sentence));
+        }
+
+        else
+        {
             return;
         }
-
-        string sentence = sentences.Dequeue();
-
-        activeSentenc = sentence;
-
-        StopAllCoroutines();
-
-        if (havingConversation)
-        {
-            SetSpeakerName();
-        }
-
-        StartCoroutine(TypeSentence(sentence));
+       
     }
 
     public void EndConversation()
@@ -193,6 +203,7 @@ public class DialogueManager : MonoBehaviour
             havingConversation = false;
             DayManager.Instance.ChangeTime((int)DayManager.Instance.currentTime + 1); //Just testing
             HUDManager hudManager = FindObjectOfType<HUDManager>();
+            canSkip = false; //Trying if not breaking anything, probebly missed this line from before
             hudManager.UpdateCanvas();
         }
         activeSentenc = null;
@@ -262,5 +273,25 @@ public class DialogueManager : MonoBehaviour
       
         loveMeterValue = 0;
         slider.value = loveMeterValue;
+    }
+
+    public void NextSentenceArea()
+    {
+        if (startToSkip == true)
+        {
+            DisplayNextSentence();
+            startToSkip = false;
+        }
+
+        if (dialogueText.text == activeSentenc)
+        {
+            startToSkip = true;
+            
+        }
+
+        else
+        {
+            return;
+        }
     }
 }

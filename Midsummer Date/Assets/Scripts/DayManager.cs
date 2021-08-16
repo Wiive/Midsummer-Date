@@ -104,7 +104,6 @@ public class DayManager : MonoBehaviour
         OptionsManager.Instnace.myData.dayInfo.day = currentDay;
         OptionsManager.Instnace.SaveToData();
 
-        Debug.Log("CurrentDay is " + CurrentDay);
         DayInformation newDay = ScriptableObject.CreateInstance<DayInformation>();
         InformationWindow.Instance.NewInformation(newDay);
     }
