@@ -246,6 +246,7 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(dialogueSpeed);
         }
+        startToSkip = true;
     }
 
     public void HidWindow()
