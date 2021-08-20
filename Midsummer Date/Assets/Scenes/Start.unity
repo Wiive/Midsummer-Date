@@ -1042,14 +1042,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5798021789921023470, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7970882258452224604, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -51.131958
-      objectReference: {fileID: 0}
     - target: {fileID: 8604688688567491719, guid: db59525221fdc9a4bb93e3619ea04fa7, type: 3}
       propertyPath: m_Name
       value: DayManager
