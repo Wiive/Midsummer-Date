@@ -13,6 +13,7 @@ public class DayManager : MonoBehaviour
     private Transform lightsTransfom;
 
     private int date = 22;
+    private int startDate = 22;
     private string dateString = " June ";
 
     private int currentDay = 1;
@@ -48,7 +49,7 @@ public class DayManager : MonoBehaviour
     {
         currentDay = OptionsManager.Instnace.myData.dayInfo.day;
         currentTime = (TimeOfDay)OptionsManager.Instnace.myData.dayInfo.time;
-        date = date + (currentDay - 1);
+        date = startDate + (currentDay - 1);
         dateText.text = date.ToString() + dateString;
         timeText.text = currentTime.ToString();
     }
