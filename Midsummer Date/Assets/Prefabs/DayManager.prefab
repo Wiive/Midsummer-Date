@@ -611,6 +611,7 @@ MonoBehaviour:
   dateText: {fileID: 2850364796629489424}
   timeText: {fileID: 1393706626768344530}
   lightSettings: {fileID: 705507994}
+  dayInformationImage: {fileID: 21300000, guid: c6259c8f8f3d8fc46a7c62bca5fcc72b, type: 3}
   currentTime: 0
 --- !u!1 &9143849913997703352
 GameObject:

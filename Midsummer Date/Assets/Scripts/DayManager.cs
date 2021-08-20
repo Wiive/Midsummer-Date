@@ -15,6 +15,7 @@ public class DayManager : MonoBehaviour
     private int date = 22;
     private int startDate = 22;
     private string dateString = " June ";
+    [SerializeField] Sprite dayInformationImage;
 
     private int currentDay = 1;
     public int CurrentDay { get { return currentDay; } }
@@ -106,6 +107,7 @@ public class DayManager : MonoBehaviour
         OptionsManager.Instnace.SaveToData();
 
         DayInformation newDay = ScriptableObject.CreateInstance<DayInformation>();
+        newDay.image = dayInformationImage;
         InformationWindow.Instance.NewInformation(newDay);
     }
 
