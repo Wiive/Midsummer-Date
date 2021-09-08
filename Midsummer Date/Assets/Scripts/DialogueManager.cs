@@ -139,9 +139,15 @@ public class DialogueManager : MonoBehaviour
         else
         {
             loveMeter.SetActive(true);
+            loveMeterValue += loveValue;
+            slider.value = loveMeterValue;
+            OptionsManager.Instnace.myData.loveMeter = (int)loveMeterValue;
+            if (slider.maxValue >= loveMeterValue)
+            {
+                Debug.Log("Love meter is full! Gz");
+            }
         }
-        loveMeterValue += loveValue;
-        slider.value = loveMeterValue;
+
     }
 
     public void DisplayNextSentence()
