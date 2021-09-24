@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class InformationWindow : MonoBehaviour
 {
     private static InformationWindow instance;
+    private float fadeSpeed = 0.01f;
+    private CanvasGroup canvasGroup;
+    private Animator animator;
 
     public Information information;
 
@@ -33,6 +36,8 @@ public class InformationWindow : MonoBehaviour
 
     private void Start()
     {
+        canvasGroup = GetComponentInChildren<CanvasGroup>();
+        animator = GetComponent<Animator>();
         image1 = image1.GetComponent<Image>();
         image2 = image2.GetComponent<Image>();
         UpdateInformation();
@@ -53,5 +58,22 @@ public class InformationWindow : MonoBehaviour
 
         Canvas canvas = GetComponentInChildren<Canvas>();
         canvas.enabled = true;
+        FadeIn();
+    }
+
+    private void FadeIn()
+    {
+        animator.SetTrigger("Fade In");
+    }
+
+    public void FadeOut()
+    {
+        animator.SetTrigger("Fade Out");
+    }
+
+    public void DisableCanvas()
+    {
+        Canvas canvas = GetComponentInChildren<Canvas>();
+        canvas.enabled = false;
     }
 }
