@@ -915,6 +915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cc33798d7593544bfe20ac828a2a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emotion: 4
 --- !u!1001 &1686025211
 PrefabInstance:
   m_ObjectHideFlags: 0
